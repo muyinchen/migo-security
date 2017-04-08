@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.migo.entity;
+package com.migo.utils;
 
 import lombok.Data;
 
@@ -23,60 +23,36 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 菜单管理
- *
- * @author   知秋
+ * @author 知秋
  * @email fei6751803@163.com
  */
 @Data
-public class SysMenuEntity implements Serializable{
+public class PageUtils implements Serializable {
+    private static final long serialVersionUID = -1202716581589799959L;
 
-    private static final long serialVersionUID = -7569874843851658233L;
-    /**
-     * 菜单ID
-     */
-    private Long menuId;
-    /**
-     * 父菜单ID，一级菜单为0
-     */
-    private Long parentId;
-    /**
-     * 父菜单名称
-     */
-    private String parentName;
-    /**
-     * 菜单名称
-     */
-    private String name;
-
-    /**
-     * 菜单URL
-     */
-    private String url;
-
-    /**
-     * 授权(多个用逗号分隔，如：user:list,user:create)
-     */
-    private String perms;
-    /**
-     * 类型     0：目录   1：菜单   2：按钮
-     */
-    private Integer type;
-
-    /**
-     * 菜单图标
-     */
-    private String icon;
-
-    /**
-     * 排序
-     */
-    private Integer orderNum;
-
-    /**
-     * ztree属性
-     */
-    private Boolean open;
-
+    //总记录数
+    private int totalCount;
+    //每页记录数
+    private int pageSize;
+    //总页数
+    private int totalPage;
+    //当前页数
+    private int currPage;
+    //列表数据
     private List<?> list;
+
+    /**
+     * 分页
+     * @param list        列表数据
+     * @param totalCount  总记录数
+     * @param pageSize    每页记录数
+     * @param currPage    当前页数
+     */
+    public PageUtils(List<?> list, int totalCount, int pageSize, int currPage) {
+        this.list = list;
+        this.totalCount = totalCount;
+        this.pageSize = pageSize;
+        this.currPage = currPage;
+        this.totalPage = (int)Math.ceil((double)totalCount/pageSize);
+    }
 }
