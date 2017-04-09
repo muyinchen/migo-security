@@ -26,7 +26,7 @@
 		<param-value>
 			classpath:spring-mvc.xml
 			classpath:spring-jdbc.xml
-			classpath*:renren-*.xml
+			classpath*:migo-*.xml
 		</param-value>
 	</context-param>
 	
@@ -117,7 +117,7 @@
     
     <error-page>
 		<error-code>404</error-code>
-		<location>/src/main/webapp/404.html</location>
+		<location>/404.html</location>
 	</error-page>
     
 </web-app>

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.migo.schedule.utils;
+package com.migo.utils;
 
 import com.migo.utils.RRException;
 import com.migo.utils.SpringContextUtils;

@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
-package com.migo.schedule.service.impl;
+package com.migo.service.impl;
 
-import com.migo.schedule.dao.ScheduleJobLogDao;
-import com.migo.schedule.entity.ScheduleJobLogEntity;
-import com.migo.schedule.service.ScheduleJobLogService;
+import com.migo.dao.ScheduleJobLogDao;
+import com.migo.entity.ScheduleJobLogEntity;
+import com.migo.service.ScheduleJobLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +30,7 @@ import java.util.Map;
  * @author 知秋
  * @email fei6751803@163.com
  */
-@Service
+@Service("scheduleJobLogService")
 public class ScheduleJobLogServiceImpl implements ScheduleJobLogService {
     @Autowired
     private ScheduleJobLogDao scheduleJobLogDao;

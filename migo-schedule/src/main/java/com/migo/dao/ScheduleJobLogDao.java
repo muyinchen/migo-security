@@ -15,10 +15,9 @@
  * limitations under the License.
  */
 
-package com.migo.schedule.dao;
+package com.migo.dao;
 
-import com.migo.dao.BaseDao;
-import com.migo.schedule.entity.ScheduleJobLogEntity;
+import com.migo.entity.ScheduleJobLogEntity;
 
 /**
  * @author 知秋

@@ -15,12 +15,11 @@
  * limitations under the License.
  */
 
-package com.migo.schedule.utils;
+package com.migo.utils;
 
-import com.migo.schedule.entity.ScheduleJobEntity;
-import com.migo.schedule.entity.ScheduleJobLogEntity;
-import com.migo.schedule.service.ScheduleJobLogService;
-import com.migo.utils.SpringContextUtils;
+import com.migo.entity.ScheduleJobEntity;
+import com.migo.entity.ScheduleJobLogEntity;
+import com.migo.service.ScheduleJobLogService;
 import org.apache.commons.lang.StringUtils;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;

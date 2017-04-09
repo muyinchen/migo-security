@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.migo.schedule.entity;
+package com.migo.entity;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;

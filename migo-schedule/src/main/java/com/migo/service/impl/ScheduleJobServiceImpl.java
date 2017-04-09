@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
-package com.migo.schedule.service.impl;
+package com.migo.service.impl;
 
-import com.migo.schedule.dao.ScheduleJobDao;
-import com.migo.schedule.entity.ScheduleJobEntity;
-import com.migo.schedule.service.ScheduleJobService;
-import com.migo.schedule.utils.ScheduleUtils;
+import com.migo.dao.ScheduleJobDao;
+import com.migo.entity.ScheduleJobEntity;
+import com.migo.service.ScheduleJobService;
 import com.migo.utils.Constant;
+import com.migo.utils.ScheduleUtils;
 import org.quartz.CronTrigger;
 import org.quartz.Scheduler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ import java.util.Map;
  * @author 知秋
  * @email fei6751803@163.com
  */
-@Service
+@Service("scheduleJobService")
 public class ScheduleJobServiceImpl implements ScheduleJobService {
     @Autowired
     private Scheduler scheduler;
@@ -51,15 +51,18 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
     @PostConstruct
     public void init(){
         List<ScheduleJobEntity> scheduleJobList = schedulerJobDao.queryList(new HashMap<>());
-        for(ScheduleJobEntity scheduleJob : scheduleJobList){
-            CronTrigger cronTrigger = ScheduleUtils.getCronTrigger(scheduler, scheduleJob.getJobId());
-            //如果不存在，则创建
-            if(cronTrigger == null) {
-                ScheduleUtils.createScheduleJob(scheduler, scheduleJob);
-            }else {
-                ScheduleUtils.updateScheduleJob(scheduler, scheduleJob);
+        if (scheduleJobList != null) {
+            for(ScheduleJobEntity scheduleJob : scheduleJobList){
+                CronTrigger cronTrigger = ScheduleUtils.getCronTrigger(scheduler, scheduleJob.getJobId());
+                //如果不存在，则创建
+                if(cronTrigger == null) {
+                    ScheduleUtils.createScheduleJob(scheduler, scheduleJob);
+                }else {
+                    ScheduleUtils.updateScheduleJob(scheduler, scheduleJob);
+                }
             }
         }
+
     }
 
     @Override
@@ -141,4 +144,5 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
 
         updateBatch(jobIds, Constant.ScheduleStatus.NORMAL.getValue());
     }
+
 }

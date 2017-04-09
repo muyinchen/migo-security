@@ -18,12 +18,12 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.migo.schedule.dao.ScheduleJobLogDao">
-	<select id="queryObject" resultType="com.migo.schedule.entity.ScheduleJobLogEntity" >
+<mapper namespace="com.migo.dao.ScheduleJobLogDao">
+	<select id="queryObject" resultType="com.migo.entity.ScheduleJobLogEntity" >
 		select * from schedule_job_log where log_id = #{value}
 	</select> 
 
-	<select id="queryList" resultType="com.migo.schedule.entity.ScheduleJobLogEntity" >
+	<select id="queryList" resultType="com.migo.entity.ScheduleJobLogEntity" >
 		select * from schedule_job_log 
 		<where>
 			<if test="jobId != null">
@@ -45,7 +45,7 @@
 		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.migo.schedule.entity.ScheduleJobLogEntity">
+	<insert id="save" parameterType="com.migo.entity.ScheduleJobLogEntity">
 		insert into schedule_job_log
 		(
 			`job_id`, 

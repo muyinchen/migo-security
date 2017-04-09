@@ -15,11 +15,9 @@
  * limitations under the License.
  */
 
-package com.migo.schedule.utils;
+package com.migo.utils;
 
-import com.migo.schedule.entity.ScheduleJobEntity;
-import com.migo.utils.Constant;
-import com.migo.utils.RRException;
+import com.migo.entity.ScheduleJobEntity;
 import org.quartz.*;
 
 /**

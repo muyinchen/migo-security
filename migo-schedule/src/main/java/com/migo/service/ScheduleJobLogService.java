@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package com.migo.schedule.service;
+package com.migo.service;
 
-import com.migo.schedule.entity.ScheduleJobLogEntity;
+import com.migo.entity.ScheduleJobLogEntity;
 
 import java.util.List;
 import java.util.Map;

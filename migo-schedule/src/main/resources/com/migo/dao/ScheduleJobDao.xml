@@ -18,12 +18,12 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.migo.schedule.dao.ScheduleJobDao">
-	<select id="queryObject" resultType="com.migo.schedule.entity.ScheduleJobEntity" >
+<mapper namespace="com.migo.dao.ScheduleJobDao">
+	<select id="queryObject" resultType="com.migo.entity.ScheduleJobEntity" >
 		select * from schedule_job where job_id = #{value}
 	</select> 
 
-	<select id="queryList" resultType="com.migo.schedule.entity.ScheduleJobEntity" >
+	<select id="queryList" resultType="com.migo.entity.ScheduleJobEntity" >
 		select * from schedule_job
 		<where>
 			<if test="beanName != null and beanName.trim() != ''">
@@ -44,7 +44,7 @@
 		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.migo.schedule.entity.ScheduleJobEntity" useGeneratedKeys="true" keyProperty="jobId">
+	<insert id="save" parameterType="com.migo.entity.ScheduleJobEntity" useGeneratedKeys="true" keyProperty="jobId">
 		insert into schedule_job
 		(
 			`bean_name`, 
@@ -67,7 +67,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.migo.schedule.entity.ScheduleJobEntity">
+	<update id="update" parameterType="com.migo.entity.ScheduleJobEntity">
 		update schedule_job 
 		<set> 
 			<if test="beanName != null">`bean_name` = #{beanName}, </if>
