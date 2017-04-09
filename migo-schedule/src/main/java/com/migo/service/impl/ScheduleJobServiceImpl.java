@@ -38,7 +38,7 @@ import java.util.Map;
  * @author 知秋
  * @email fei6751803@163.com
  */
-@Service("scheduleJobService")
+@Service
 public class ScheduleJobServiceImpl implements ScheduleJobService {
     @Autowired
     private Scheduler scheduler;

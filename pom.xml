@@ -13,6 +13,7 @@
         <module>migo-common</module>
         <module>migo-web</module>
         <module>migo-schedule</module>
+        <module>migo-gen</module>
     </modules>
 
 

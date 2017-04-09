@@ -30,7 +30,7 @@ import java.util.Map;
  * @author 知秋
  * @email fei6751803@163.com
  */
-@Service("scheduleJobLogService")
+@Service
 public class ScheduleJobLogServiceImpl implements ScheduleJobLogService {
     @Autowired
     private ScheduleJobLogDao scheduleJobLogDao;
