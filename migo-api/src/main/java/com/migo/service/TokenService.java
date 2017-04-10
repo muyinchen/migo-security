@@ -15,43 +15,33 @@
  * limitations under the License.
  */
 
-package com.migo.entity;
+package com.migo.service;
 
-import lombok.Data;
+import com.migo.entity.TokenEntity;
 
-import java.util.List;
+import java.util.Map;
 
 /**
- * 表数据对应实体类
+ * 用户Token Service
  *
  * @author 知秋
  * @email fei6751803@163.com
  */
-@Data
-public class TableEntity {
-    //表的名称
-    private String tableName;
-    //表的备注
-    private String comments;
-    //表的主键
-    private ColumnEntity pk;
-    //表的列名(不包含主键)
-    private List<ColumnEntity> columns;
+public interface TokenService {
 
-    //类名(第一个字母大写)，如：sys_user => SysUser
-    private String className;
-    //类名(第一个字母小写)，如：sys_user => sysUser
-    private String classname;
-    public String getClassName() {
-        return className;
-    }
-    public void setClassName(String className) {
-        this.className = className;
-    }
-    public String getClassname() {
-        return classname;
-    }
-    public void setClassname(String classname) {
-        this.classname = classname;
-    }
+    TokenEntity queryByUserId(Long userId);
+
+    TokenEntity queryByToken(String token);
+
+    void save(TokenEntity token);
+
+    void update(TokenEntity token);
+
+    /**
+     * 生成token
+     * @param userId  用户ID
+     * @return        返回token相关信息
+     */
+    Map<String, Object> createToken(long userId);
+
 }

@@ -26,8 +26,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>migo-web</artifactId>
-    <packaging>war</packaging>
+    <artifactId>migo-api</artifactId>
+    <description>API接口模块</description>
 
     <dependencies>
         <dependency>
@@ -35,42 +35,7 @@
             <artifactId>migo-common</artifactId>
             <version>${migo-version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.migo</groupId>
-            <artifactId>migo-shiro</artifactId>
-            <version>${migo-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.migo</groupId>
-            <artifactId>migo-schedule</artifactId>
-            <version>${migo-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.migo</groupId>
-            <artifactId>migo-api</artifactId>
-            <version>${migo-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.migo</groupId>
-            <artifactId>migo-gen</artifactId>
-            <version>${migo-version}</version>
-        </dependency>
     </dependencies>
 
-    <build>
-
-     <!--   &lt;!&ndash;  <finalName>migo-security</finalName>&ndash;&gt;
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <configuration>
-                    <port>8090</port>
-                    <path>/</path>
-                </configuration>
-            </plugin>
-        </plugins>-->
-    </build>
 
 </project>

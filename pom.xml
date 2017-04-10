@@ -14,6 +14,7 @@
         <module>migo-web</module>
         <module>migo-schedule</module>
         <module>migo-gen</module>
+        <module>migo-api</module>
     </modules>
 
 

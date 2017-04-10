@@ -15,43 +15,42 @@
  * limitations under the License.
  */
 
-package com.migo.entity;
+package com.migo.service;
 
-import lombok.Data;
+import com.migo.entity.UserEntity;
 
 import java.util.List;
+import java.util.Map;
 
 /**
- * 表数据对应实体类
+ * 用户Service
  *
  * @author 知秋
  * @email fei6751803@163.com
  */
-@Data
-public class TableEntity {
-    //表的名称
-    private String tableName;
-    //表的备注
-    private String comments;
-    //表的主键
-    private ColumnEntity pk;
-    //表的列名(不包含主键)
-    private List<ColumnEntity> columns;
+public interface UserService {
 
-    //类名(第一个字母大写)，如：sys_user => SysUser
-    private String className;
-    //类名(第一个字母小写)，如：sys_user => sysUser
-    private String classname;
-    public String getClassName() {
-        return className;
-    }
-    public void setClassName(String className) {
-        this.className = className;
-    }
-    public String getClassname() {
-        return classname;
-    }
-    public void setClassname(String classname) {
-        this.classname = classname;
-    }
+    UserEntity queryObject(Long userId);
+
+    List<UserEntity> queryList(Map<String, Object> map);
+
+    int queryTotal(Map<String, Object> map);
+
+    void save(UserEntity user);
+
+    void update(UserEntity user);
+
+    void delete(Long userId);
+
+    void deleteBatch(Long[] userIds);
+
+    UserEntity queryByMobile(String mobile);
+
+    /**
+     * 用户登录
+     * @param mobile    手机号
+     * @param password  密码
+     * @return          返回用户ID
+     */
+    long login(String mobile, String password);
 }

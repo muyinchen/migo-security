@@ -42,4 +42,17 @@ public class ColumnEntity {
     private String attrType;
     //auto_increment
     private String extra;
+
+    public String getAttrname() {
+        return attrname;
+    }
+    public void setAttrname(String attrname) {
+        this.attrname = attrname;
+    }
+    public String getAttrName() {
+        return attrName;
+    }
+    public void setAttrName(String attrName) {
+        this.attrName = attrName;
+    }
 }

@@ -15,43 +15,41 @@
  * limitations under the License.
  */
 
-package com.migo.entity;
+package com.migo.api;
 
-import lombok.Data;
-
-import java.util.List;
+import com.migo.annotation.IgnoreAuth;
+import com.migo.annotation.LoginUser;
+import com.migo.entity.UserEntity;
+import com.migo.utils.R;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 表数据对应实体类
+ * API测试
  *
  * @author 知秋
  * @email fei6751803@163.com
  */
-@Data
-public class TableEntity {
-    //表的名称
-    private String tableName;
-    //表的备注
-    private String comments;
-    //表的主键
-    private ColumnEntity pk;
-    //表的列名(不包含主键)
-    private List<ColumnEntity> columns;
+@RestController
+@RequestMapping("/api")
+public class ApiTestController {
+    /**
+     * 获取用户信息
+     */
+    @GetMapping("userInfo")
+    public R userInfo(@LoginUser UserEntity user){
 
-    //类名(第一个字母大写)，如：sys_user => SysUser
-    private String className;
-    //类名(第一个字母小写)，如：sys_user => sysUser
-    private String classname;
-    public String getClassName() {
-        return className;
+        return R.ok().put("user", user);
     }
-    public void setClassName(String className) {
-        this.className = className;
-    }
-    public String getClassname() {
-        return classname;
-    }
-    public void setClassname(String classname) {
-        this.classname = classname;
+
+    /**
+     * 忽略Token验证测试
+     */
+    @IgnoreAuth
+    @GetMapping("notToken")
+    public R notToken(){
+
+        return R.ok().put("message", "无需token也能访问。。。");
     }
 }

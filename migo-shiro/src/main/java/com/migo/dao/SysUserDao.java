@@ -43,6 +43,7 @@ public interface SysUserDao extends BaseDao<SysUserEntity> {
     /**
      * 根据用户名，查询系统用户
      */
+    /*@Select("select * from sys_user where username = #{username}")*/
     SysUserEntity queryByUserName(String username);
 
     /**
