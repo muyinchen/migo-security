@@ -27,7 +27,7 @@
 	<mvc:annotation-driven>
 		<mvc:argument-resolvers>
 			<bean class="com.migo.resolver.LoginUserHandlerMethodArgumentResolver">
-				<property name="userService" ref="userService"></property>
+				<property name="userService" ref="userService"/>
 			</bean>
 		</mvc:argument-resolvers>
 		<mvc:message-converters register-defaults="true">

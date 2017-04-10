@@ -44,6 +44,13 @@ public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgu
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
+
+        /**
+         * isAssignableFrom 是用来判断一个类Class1和另一个类Class2是否相同或是另一个类的超类或接口。
+         * 通常调用格式是
+         * Class1.isAssignableFrom (Class2)
+         * 调用者和参数都是   java.lang.Class   类型。
+         */
         return parameter.getParameterType().isAssignableFrom(UserEntity.class) && parameter.hasParameterAnnotation(LoginUser.class);
     }
 

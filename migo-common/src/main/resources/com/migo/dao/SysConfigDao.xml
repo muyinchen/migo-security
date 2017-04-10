@@ -23,7 +23,7 @@
 	</select>
 	
 	<select id="queryList" parameterType="map" resultType="com.migo.entity.SysConfigEntity">
-		select * from sys_config where status = 1 
+		select * from sys_config where status = 0
 		<if test="key != null and key.trim() != ''">
 			and `key` like concat('%',#{key},'%') 
 		</if>
@@ -33,7 +33,7 @@
 	</select>
 	
 	<select id="queryTotal" parameterType="map" resultType="int">
-		select count(*) from sys_config where status = 1 
+		select count(*) from sys_config where status = 0
 		<if test="key != null and key.trim() != ''">
 			and `key` like concat('%',#{key},'%')
 		</if>
