@@ -29,7 +29,8 @@
 
 ```
 migo-security
-├─doc  项目SQL语句
+├─doc  项目开发过程文档
+├─sql  项目SQL语句
 ├─migo-common 公共模块
 │  ├─annotation 公共注解
 │  ├─oss 云存储服务
