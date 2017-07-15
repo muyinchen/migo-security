@@ -93,8 +93,8 @@ public class SysLoginController extends AbstractController {
      * 退出
      */
     @GetMapping("logout")
-    public String logout() {
+    public void logout(HttpServletResponse response) throws IOException {
         ShiroUtils.logout();
-        return "redirect:login.html";
+        response.sendRedirect("login.html");
     }
 }
